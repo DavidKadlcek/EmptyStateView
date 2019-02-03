@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol EmptyStateViewDelegate: class {
+public protocol EmptyStateViewDelegate: class {
     func handleTapOnButton()
 }
 
 public class EmptyStateView: UIView {
     
-    lazy var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = image
@@ -22,7 +22,7 @@ public class EmptyStateView: UIView {
         return imageView
     }()
     
-    lazy var titleLabel: UILabel = {
+    public lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = title
@@ -32,7 +32,7 @@ public class EmptyStateView: UIView {
         return label
     }()
     
-    lazy var messageLabel: UILabel = {
+    public lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = message
@@ -42,7 +42,7 @@ public class EmptyStateView: UIView {
         return label
     }()
     
-    lazy var button: UIButton = {
+    public lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(buttonText, for: .normal)
@@ -66,9 +66,9 @@ public class EmptyStateView: UIView {
     private let message: String?
     private let buttonText: String?
     
-    weak var delegate: EmptyStateViewDelegate?
+    public weak var delegate: EmptyStateViewDelegate?
     
-    init(image: UIImage, title: String, message: String? = nil, buttonText: String? = nil) {
+    public init(image: UIImage, title: String, message: String? = nil, buttonText: String? = nil) {
         self.image = image
         self.title = title
         self.message = message
