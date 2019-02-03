@@ -1,6 +1,7 @@
 # EmptyStateView
 
-Pod for easier work with Empty states in UI
+Pod for easier work with Empty states in UI.
+
 ![img](https://i.imgur.com/OULasya.png)
 
 ## Usage
