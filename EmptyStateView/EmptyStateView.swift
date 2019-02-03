@@ -74,7 +74,6 @@ public class EmptyStateView: UIView {
         self.message = message
         self.buttonText = buttonText
         super.init(frame: UIScreen.main.bounds)
-        translatesAutoresizingMaskIntoConstraints = false
         setupConstraints()
     }
     
