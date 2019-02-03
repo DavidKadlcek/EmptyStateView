@@ -1,7 +1,6 @@
 # EmptyStateView
 
-This is a pod helpful for polite app.
-
+Pod for easier work with Empty states in UI
 ![img](https://i.imgur.com/OULasya.png)
 
 ## Usage
