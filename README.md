@@ -2,7 +2,7 @@
 
 This is a pod helpful for polite app.
 
-![Scrennshot of EmptyStateView](https://imgur.com/a/5yHwD5d)
+![img](https://i.imgur.com/OULasya.png)
 
 ## Usage
 
