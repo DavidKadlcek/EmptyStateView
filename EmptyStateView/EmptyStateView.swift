@@ -66,13 +66,16 @@ public class EmptyStateView: UIView {
     private let message: String?
     private let buttonText: String?
     
+    private let imageSize: CGSize?
+    
     public weak var delegate: EmptyStateViewDelegate?
     
-    public init(image: UIImage, title: String, message: String? = nil, buttonText: String? = nil) {
+    public init(image: UIImage, title: String, message: String? = nil, buttonText: String? = nil, imageSize: CGSize? = nil) {
         self.image = image
         self.title = title
         self.message = message
         self.buttonText = buttonText
+        self.imageSize = imageSize
         super.init(frame: UIScreen.main.bounds)
         setupConstraints()
     }
@@ -88,8 +91,8 @@ public class EmptyStateView: UIView {
     private func setupConstraints() {
         let sizeOfImageView = CGSize(width: self.frame.width / 3, height: self.frame.width / 3)
         
-        imageView.heightAnchor.constraint(equalToConstant: sizeOfImageView.height).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: sizeOfImageView.width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: imageSize?.height ?? sizeOfImageView.height).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: imageSize?.width ?? sizeOfImageView.width).isActive = true
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
