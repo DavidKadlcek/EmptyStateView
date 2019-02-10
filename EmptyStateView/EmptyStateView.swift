@@ -89,10 +89,23 @@ public class EmptyStateView: UIView {
     }
     
     private func setupConstraints() {
-        let sizeOfImageView = CGSize(width: self.frame.width / 3, height: self.frame.width / 3)
+        let sizeOfImageView = CGSize(width: self.frame.width / 2, height: self.frame.width / 2)
         
-        imageView.heightAnchor.constraint(equalToConstant: imageSize?.height ?? sizeOfImageView.height).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: imageSize?.width ?? sizeOfImageView.width).isActive = true
+        if let width = imageSize?.width, let imageHeight = imageView.image?.size.height, let imageWidth = imageView.image?.size.width {
+            let ratio = width / imageWidth
+            let aspectRatioSize = CGSize(width: imageWidth * ratio, height: imageHeight * ratio)
+            imageView.heightAnchor.constraint(equalToConstant: aspectRatioSize.height).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: aspectRatioSize.width).isActive = true
+        } else if let imageHeight = imageView.image?.size.height, let imageWidth = imageView.image?.size.width {
+            let ratio = sizeOfImageView.width / imageWidth
+            let aspectRatioSize = CGSize(width: imageWidth * ratio, height: imageHeight * ratio)
+            imageView.heightAnchor.constraint(equalToConstant: aspectRatioSize.height).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: aspectRatioSize.width).isActive = true
+        } else {
+            imageView.heightAnchor.constraint(equalToConstant: sizeOfImageView.height).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: sizeOfImageView.width).isActive = true
+        }
+        
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
