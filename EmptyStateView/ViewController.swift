@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     lazy var emptyView: EmptyStateView = {
-        let view = EmptyStateView(image: UIImage(named: "hamburger")!, title: "Opps...!", message: "Something went wrong!", buttonText: "Try again")
+        let view = EmptyStateView(image: UIImage(named: "booksEmpty")!, title: "Opps...!", message: "Something went wrong!", buttonText: "Try again")
+        //view.imageView.backgroundColor = .yellow
         view.messageLabel.font = UIFont(name: ".SFUIText-Medium", size: 20)
         view.titleLabel.font = UIFont(name: ".SFUIText-Bold", size: 30)
         view.delegate = self
